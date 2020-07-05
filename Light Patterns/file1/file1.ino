@@ -22,8 +22,24 @@ void loop() {
       digitalWrite(f, LOW);
       f++;
     }
-    delay(500);
+    delay(250);
     i++;
+  }
+  i = 8;
+  while (i >= 3) {
+    digitalWrite(i, HIGH);
+    int f = i-1;
+    while(f >=3) {
+      digitalWrite(f, LOW);
+      f--;
+    }
+    f=i+1;
+    while (f <= 8) {
+      digitalWrite(f, LOW);
+      f++;
+    }
+    delay(250);
+    i--;
   }
 
 }
