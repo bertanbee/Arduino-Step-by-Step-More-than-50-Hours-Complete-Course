@@ -5,41 +5,40 @@ void setup() {
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
   pinMode(8, OUTPUT);
-
 }
 
-void loop() {
-  int i = 3;
-  while (i <= 8) {
-    digitalWrite(i, HIGH);
-    int f = i-1;
-    while(f >=3) {
-      digitalWrite(f, LOW);
-      f--;
-    }
-    f=i+1;
-    while (f <= 8) {
-      digitalWrite(f, LOW);
-      f++;
-    }
-    delay(250);
-    i++;
-  }
-  i = 8;
-  while (i >= 3) {
-    digitalWrite(i, HIGH);
-    int f = i-1;
-    while(f >=3) {
-      digitalWrite(f, LOW);
-      f--;
-    }
-    f=i+1;
-    while (f <= 8) {
-      digitalWrite(f, LOW);
-      f++;
-    }
-    delay(250);
-    i--;
-  }
+int i = 3;
+int j = 8;
 
+void loop() {
+  
+  digitalWrite(i, HIGH);
+  digitalWrite(j, HIGH);
+  int k = i + 1;
+  while(k <= 8) {
+    if (k == j) {
+      digitalWrite(k, HIGH);
+      k++;
+    } else {
+      digitalWrite(k, LOW);
+      k++;
+    }
+  }
+  k = i - 1;
+  while(k >= 3) {
+    if (k == j) {
+      digitalWrite(k, HIGH);
+      k--;
+    } else {
+      digitalWrite(k, LOW);
+      k--;
+    }
+  }
+  delay(120);
+  i++;
+  j--;
+  if(i > 8 || j < 3) {
+    i=3;
+    j=8;
+  }
 }
