@@ -1,12 +1,29 @@
 void setup() {
   pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
 
 }
 
 void loop() {
-  digitalWrite(3, HIGH);
-  delay(1000);
-  digitalWrite(3, LOW);
-  delay(1000);
+  int i = 3;
+  while (i <= 8) {
+    digitalWrite(i, HIGH);
+    int f = i-1;
+    while(f >=3) {
+      digitalWrite(f, LOW);
+      f--;
+    }
+    f=i+1;
+    while (f <= 8) {
+      digitalWrite(f, LOW);
+      f++;
+    }
+    delay(500);
+    i++;
+  }
 
 }
